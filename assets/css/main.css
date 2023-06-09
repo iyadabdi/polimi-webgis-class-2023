@@ -2805,8 +2805,8 @@ input, select, textarea {
 
 			#banner .inner header {
 				display: inline-block;
-				border-bottom: dotted 1px;
-				border-top: dotted 1px;
+				border-bottom: solid .75px;
+				border-top: solid .75px;
 				margin: 0 0 2em 0;
 				padding: 3px 0 3px 0;
 			}
