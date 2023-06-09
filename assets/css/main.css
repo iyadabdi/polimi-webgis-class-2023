@@ -1964,7 +1964,7 @@ input, select, textarea {
 
 			header.special .icon:before {
 				font-size: 3.5em;
-				opacity: 0.8;
+				opacity: 1;
 			}
 
 	footer > :last-child {
@@ -2902,9 +2902,9 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		background: #5d5d5d;
+		background: #0062ff;
 		color: #ffffff;
-		padding: 5em 5em 5em 5em;
+		padding: 7em 5em 7em 5em;
 		text-align: center;
 	}
 
