@@ -12,12 +12,12 @@
 
 .wrapper.style2{
     /* This is an example of how to change colors in the template */
-    background-color: #2e7947;
+    background-color: #0062ff;
 }
 
 .custom-banner{
     /*Change the background image here*/
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/3d/Flag-map_of_the_world_%282017%29.png')!important;
+    background-image: url("../../images/lombardybw.png");
     background-size: cover!important;
 
     /* Original background, for reference
@@ -28,9 +28,11 @@
     background-repeat: no-repeat, no-repeat, repeat, no-repeat;
     background-size: 25em, 25em, auto, cover;
     */
-
+    position: relative;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
+    height: 120%;
 }
 
 /*Popup Styles*/
@@ -87,8 +89,8 @@
     bottom: 30px;
     position: absolute;
     right: 15px;
-    background: #2e7947;
-    color: white;
-    border: 2px solid cadetblue;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(192, 192, 192);
     padding: 10px;
 }

@@ -17,6 +17,7 @@
 
 .custom-banner {
     /*Change the background image here*/
+    background-image: url('images/lombardia.jpg') !important;
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/3d/Flag-map_of_the_world_%282017%29.png') !important;
     background-size: cover !important;
 
