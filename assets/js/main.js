@@ -94,8 +94,14 @@
 		}
 
 })(jQuery);
+$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+  event.preventDefault();
+  $(this).ekkoLightbox({
+    closeButton: '.btn-close', // Specify the close button selector
+  });
+});
 
-// Slideshow JavaScript code
+
 // Slideshow JavaScript code
 var slideIndex = 0;
 var timer;

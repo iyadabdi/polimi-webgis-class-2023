@@ -186,6 +186,7 @@ input, select, textarea {
 	#two {
 	  scroll-margin-top: 45px; /* Adjust the value as needed */
 	}
+
 /* Container */
 
 	.container {
@@ -1825,11 +1826,15 @@ input, select, textarea {
 		  margin: auto;
 		}
 		.mySlides2 {
-		  display: none;
+		  display: block;
 		}
 		/* Show the active slide */
 		.mySlides2.active2 {
 		  display: block;
+		}
+		.mySlides2 img {
+			display: block;
+			width: 100%;
 		}
 		/* Next & previous buttons */
 		.prev2, .next2 {
@@ -1906,6 +1911,16 @@ input, select, textarea {
 		  to {opacity: 1}
 		}
 
+		/* Caption text */
+		.text3 {
+		  color: #000000;
+		  font-size: 15px;
+		  padding: 8px 12px;
+		  position: absolute;
+		  bottom: -100px;
+		  width: 100%;
+		  text-align: center;
+		}
 
 /* div/Article */
 
@@ -2036,7 +2051,6 @@ input, select, textarea {
 	}
 
 /* Image */
-
 	.image {
 		border: 0;
 		position: relative;

@@ -12,6 +12,8 @@
 		<link rel="stylesheet" href="assets/libraries/bootstrap-5.0.2-dist/css/bootstrap.css">
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/custom-styles.css" />
+		<link rel="stylesheet" href="assets/css/lightbox.min.css">
+
 
 	</head>
 	<body class="index is-preload">
@@ -158,13 +160,15 @@
 						<div class="wrapper style3 container special">
 
 							<header class="major">
-								<h2>Some of our Findings!</h2>
+								<h2>Data Overview</h2>
 							</header>
 							<div class="row">
 								<div class="col-6 col-12-narrower">
 
 									<div>
-										<a href="#" class="image featured"><img src="images/LS_inventory.png" alt="" /></a>
+										<a href="images/LS_inventory.png" data-lightbox="image" class="image featured">
+										    <img src="images/LS_inventory.png" alt="" />
+										</a>
 										<header>
 											<h3>Landslide Inventory</h3>
 										</header>
@@ -175,11 +179,13 @@
 								<div class="col-6 col-12-narrower">
 
 									<div>
-										<a href="#" class="image featured"><img src="images/dtm.png" alt="" /></a>
+										<a href="images/dtm.png" data-lightbox="image" class="image featured">
+												<img src="images/dtm.png" alt="" />
+										</a>
 										<header>
 											<h3>Digital Terrain Model</h3>
 										</header>
-										<p>Brief explanation or description. <br>Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
+										<p>Brief explanation or description. <br>Topographic model showing the features of our terrain.</p>
 									</div>
 
 								</div>
@@ -188,22 +194,26 @@
 								<div class="col-6 col-12-narrower">
 
 									<div>
-										<a href="#" class="image featured"><img src="images/points.png" alt="" /></a>
+										<a href="images/points.png" data-lightbox="image" class="image featured">
+												<img src="images/points.png" alt="" />
+										</a>
 										<header>
 											<h3>Points Layer</h3>
 										</header>
-										<p>Brief explanation or description. <br>Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
+										<p>Brief explanation or description. <br>Used to train and test our landslide susceptibility process and output. </p>
 									</div>
 
 								</div>
 								<div class="col-6 col-12-narrower">
 
 									<div>
-										<a href="#" class="image featured"><img src="images/population.png" alt="" /></a>
+										<a href="images/population.png" data-lightbox="image" class="image featured">
+												<img src="images/population.png" alt="" />
+										</a>
 										<header>
 											<h3>Population</h3>
 										</header>
-										<p>Brief explanation or description. <br>Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
+										<p>Brief explanation or description. <br>The spatial distribution of population. The absolute population amount per raster cell.</p>
 									</div>
 
 								</div>
@@ -247,6 +257,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/lightbox.min.js"></script>
 
 	</body>
 </html>
