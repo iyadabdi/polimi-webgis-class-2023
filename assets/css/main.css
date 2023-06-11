@@ -1738,6 +1738,8 @@ input, select, textarea {
 		.mySlides {
 		  display: none;
 		}
+
+		}
 		/* Show the active slide */
 		.mySlides.active {
 		  display: block;
@@ -1776,7 +1778,7 @@ input, select, textarea {
 		  font-size: 15px;
 		  padding: 8px 12px;
 		  position: absolute;
-		  bottom: -30px;
+		  bottom: -60px;
 		  width: 100%;
 		  text-align: center;
 		}
@@ -1870,7 +1872,7 @@ input, select, textarea {
 		  font-size: 15px;
 		  padding: 8px 12px;
 		  position: absolute;
-		  bottom: -30px;
+		  bottom: -60px;
 		  width: 100%;
 		  text-align: center;
 		}

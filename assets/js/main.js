@@ -102,6 +102,7 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event) {
 });
 
 
+
 // Slideshow JavaScript code
 var slideIndex = 0;
 var timer;
@@ -121,38 +122,66 @@ function initializeSlideshow() {
     dots[i].className = dots[i].className.replace(" active", "");
   }
 
-  // Show the current slide and set the corresponding dot as active
+  // Show the first slide and set the corresponding dot as active
   slides[slideIndex].style.display = "block";
   dots[slideIndex].className += " active";
 
   // Start the automatic slideshow
-  timer = setTimeout(nextSlide, 3000);
+  timer = setTimeout(function(){plusSlides(1)}, 5000);
 }
 
-// Move to the next slide
-function nextSlide() {
-  slideIndex++;
+// Move to the next or previous slide
+function plusSlides(n) {
+  clearTimeout(timer);
 
   var slides = document.getElementsByClassName("mySlides");
   var dots = document.getElementsByClassName("dot");
 
-  // Wrap around to the first slide if reaching the end
+  // Hide current slide and deactivate its dot
+  slides[slideIndex].style.display = "none";
+  dots[slideIndex].className = dots[slideIndex].className.replace(" active", "");
+
+  // Increment or decrement the slideIndex and wrap around if necessary
+  slideIndex += n;
   if (slideIndex >= slides.length) {
     slideIndex = 0;
+  } else if (slideIndex < 0) {
+    slideIndex = slides.length - 1;
   }
 
-  initializeSlideshow();
+  // Show the next or previous slide and activate its dot
+  slides[slideIndex].style.display = "block";
+  dots[slideIndex].className += " active";
+
+  // Restart the timer
+  timer = setTimeout(function(){plusSlides(1)}, 5000);
 }
 
 // Function to set the current slide
 function currentSlide(n) {
   clearTimeout(timer);
+
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+
+  // Hide current slide and deactivate its dot
+  slides[slideIndex].style.display = "none";
+  dots[slideIndex].className = dots[slideIndex].className.replace(" active", "");
+
+  // Adjust for 1-based indexing in the HTML and set slideIndex to the given index
   slideIndex = n - 1;
-  initializeSlideshow();
+
+  // Show the chosen slide and activate its dot
+  slides[slideIndex].style.display = "block";
+  dots[slideIndex].className += " active";
+
+  // Restart the timer
+  timer = setTimeout(function(){plusSlides(1)}, 5000);
 }
 
 // Initialize the slideshow on page load
 document.addEventListener("DOMContentLoaded", initializeSlideshow);
+
 
 
 // Slideshow 2 JavaScript code
@@ -174,35 +203,62 @@ function initializeSlideshow2() {
     dot2[i].className = dot2[i].className.replace(" active2", "");
   }
 
-  // Show the current slide and set the corresponding dot as active
+  // Show the first slide and set the corresponding dot as active
   slides2[slideIndex2].style.display = "block";
   dot2[slideIndex2].className += " active2";
 
   // Start the automatic slideshow
-  timer2 = setTimeout(nextSlide2, 3000);
+  timer2 = setTimeout(plusSlides2, 3000);
 }
-
-// Move to the next slide
-function nextSlide2() {
-  slideIndex2++;
+// Function to set the current slide
+function currentSlide2(n) {
+  clearTimeout(timer2);
 
   var slides2 = document.getElementsByClassName("mySlides2");
   var dot2 = document.getElementsByClassName("dot2");
 
-  // Wrap around to the first slide if reaching the end
+  // Hide current slide and deactivate its dot
+  slides2[slideIndex2].style.display = "none";
+  dot2[slideIndex2].className = dot2[slideIndex2].className.replace(" active2", "");
+
+  // Adjust for 1-based indexing in the HTML and set slideIndex2 to the given index
+  slideIndex2 = n - 1;
+
+  // Show the chosen slide and activate its dot
+  slides2[slideIndex2].style.display = "block";
+  dot2[slideIndex2].className += " active2";
+
+  // Restart the timer
+  timer2 = setTimeout(function(){plusSlides2(1)}, 5000);
+}
+
+// Move to the next or previous slide
+function plusSlides2(n) {
+  clearTimeout(timer2);
+
+  var slides2 = document.getElementsByClassName("mySlides2");
+  var dot2 = document.getElementsByClassName("dot2");
+
+  // Hide current slide and deactivate its dot
+  slides2[slideIndex2].style.display = "none";
+  dot2[slideIndex2].className = dot2[slideIndex2].className.replace(" active2", "");
+
+  // Increment or decrement the slideIndex and wrap around if necessary
+  slideIndex2 += n;
   if (slideIndex2 >= slides2.length) {
     slideIndex2 = 0;
+  } else if (slideIndex2 < 0) {
+    slideIndex2 = slides2.length - 1;
   }
 
-  initializeSlideshow2();
+  // Show the next or previous slide and activate its dot
+  slides2[slideIndex2].style.display = "block";
+  dot2[slideIndex2].className += " active2";
+
+  // Restart the timer
+  timer2 = setTimeout(function(){plusSlides2(1)}, 3000);
 }
 
-// Function to set the current slide
-function currentSlide2(n) {
-  clearTimeout(timer2);
-  slideIndex2 = n - 1;
-  initializeSlideshow2();
-}
 
 // Initialize the second slideshow on page load
 document.addEventListener("DOMContentLoaded", initializeSlideshow2);
