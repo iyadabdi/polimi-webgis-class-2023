@@ -36,7 +36,7 @@
 }
 
 /*Popup Styles*/
-.ol-popup {
+*.ol-popup {
     position: absolute;
     background-color: white;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
@@ -44,7 +44,7 @@
     border-radius: 10px;
     border: 1px solid #cccccc;
     bottom: 12px;
-    left: -50px;
+    left: 10px;
     min-width: 280px;
 }
 
@@ -62,15 +62,15 @@
 .ol-popup:after {
     border-top-color: white;
     border-width: 10px;
-    left: 48px;
-    margin-left: -10px;
+    left: 18px;
+    margin-left: 10px;
 }
 
 .ol-popup:before {
     border-top-color: #cccccc;
     border-width: 11px;
-    left: 48px;
-    margin-left: -11px;
+    left: 18px;
+    margin-left: 11px;
 }
 
 .ol-popup-closer {
@@ -82,6 +82,14 @@
 
 .ol-popup-closer:after {
     content: "✖";
+}
+
+/*.layer-switcher.shown.layer-switcher-activation-mode-click {
+  padding-right: 34px;
+}
+.layer-switcher.shown.layer-switcher-activation-mode-click > button {
+  right: 0;
+  border-left: 0;
 }
 
 /*Add your new styles after this line*/
