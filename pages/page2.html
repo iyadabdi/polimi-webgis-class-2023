@@ -142,8 +142,9 @@
 									  <span class="dot" onclick="currentSlide(8)"></span>
 									  <span class="dot" onclick="currentSlide(9)"></span>
 									</div>
-									<br></br>
+									<br>
 									<hr>
+									</br>
 
 									<!-- Slideshow container 2-->
 									<div class="slideshow-container2">
@@ -213,72 +214,104 @@
 									  <span class="dot2" onclick="currentSlide2(5)"></span>
 									  <span class="dot2" onclick="currentSlide2(6)"></span>
 									</div>
-									<br></br>
+									<br>
 									<hr>
+								</br>
+
+									<!-- Slideshow container 3-->
+									<div class="slideshow-container3">
+
+									  <!-- Full-width images with number and caption text -->
+									  <div class="mySlides3 fade3">
+									    <div class="numbertext3">1 / 2</div>
+												<a href="../images/ppl_class.png" data-lightbox="image" class="image featured">
+													<img src="../images/ppl_class.png" style="width:100%">
+												</a>
+									    <div class="text3">Population per Susceptibility Class</div>
+									  </div>
+
+										<div class="mySlides3 fade3">
+										    <div class="numbertext3">2 / 2</div>
+										    	<a href="../images/builtup_areas.png" data-lightbox="image" class="image featured">
+										       	<img src="../images/builtup_areas.png" style="width:100%">
+										    	</a>
+										    <div class="text3">Built-up Areas (m<sup>2</sup>) per Susceptibility Class</div>
+										</div>
+
+
+									  <!-- Next and previous buttons -->
+									  <a class="prev3" onclick="plusSlides3(-1)">&#10094;</a>
+									  <a class="next3" onclick="plusSlides3(1)">&#10095;</a>
+									</div>
+									<br>
+
+									<!-- The dots/circles -->
+									<div style="text-align:center">
+									  <span class="dot3" onclick="currentSlide3(1)"></span>
+									  <span class="dot3" onclick="currentSlide3(2)"></span>
+
+									</div>
+									<br><hr><br>
 									<figure style="text-align: center;">
-									    <img src="../images/ppl_class.png" style="width: 70%;" alt="Image description">
-									    <figcaption style="margin-top: 15px;">Population per Susceptibility Class</figcaption>
+										<figcaption style="margin-top: 15px; color: #000000; font-size: 17pt; font-weight: 400;">Error Matrix: Testing and Training Data</figcaption>
+										<img src="../images/error_matrix.png" style="width: 70%;" alt="Image description">
 									</figure>
-									<br><br><hr>
+									<br>
+									<hr><br>
 									<div>
 										<header>
-											<h3><strong>REPORT ON LANDSLIDE SUSCEPTIBILITY FOR OUR AREA IN LOMBARDY, ITALY</strong></h3>
+											<h2><strong>LANDSLIDE SUSCEPTIBILITY REPORT:<br> VALLE IMAGNA, LOMBARDIA (Imagna Valley, Lombardy)</strong></h2><br>
 										</header>
-										<p>Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum massa. Morbi eu faucibus massa. Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam.</p>
-										<p>Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum porta cursus justo. Quisque ultricies lorem in ligula condimentum, et egestas turpis sagittis. Cras ac nunc urna. Nullam eget lobortis purus. Phasellus vitae tortor non est placerat tristique. Sed id sem et massa ornare pellentesque. Maecenas pharetra porta accumsan. </p>
-										<p>In vestibulum massa quis arcu lobortis tempus. Nam pretium arcu in odio vulputate luctus. Suspendisse euismod lorem eget lacinia fringilla. Sed sed felis justo. Nunc sodales elit in laoreet aliquam. Nam gravida, nisl sit amet iaculis porttitor, risus nisi rutrum metus, non hendrerit ipsum arcu tristique est.</p>
+										<h3><b>Abstract:</b></h3>
+										<p>Landslides pose a significant threat to the environment, infrastructure, and human lives, resulting from a combination of natural and human-induced factors. Implementing effective risk mitigation strategies, including early warning systems, is crucial for addressing these unavoidable geological phenomena. This study aims to contribute to this direction by developing a landslide susceptibility map for the Imagna Valley, providing a representation of the probability of landslide occurrence at different locations. The map facilitates the assessment of population percentages exposed to various levels of landslide risk.</p>
+										<h3><b>Introduction</b></h3>
+										<p>The analysis employed open-source programs, specifically the Geographic Information System (GIS) software Q-GIS, integrated with R statistical software and Python programming language. Various open-source datasets, including raster files such as Geotiff images and vectorial shapes like Geopackages, were utilized. The datasets were imported and pre-processed. To validate the model, two samples of points were created, one for training and one for testing. The landslide susceptibility map was generated using a Random Forest algorithm implemented in an R script, which utilized the training sample and the environmental factors represented by the raster files. The Python script compared the results with the testing sample to estimate the errors committed by the model. The population exposure assessment was conducted by categorizing the susceptibility map and determining the population belonging to each risk class.</p>
+										<h3><b>Data Description</b></h3>
+										<p>The following datasets were employed for this study:<br><br>
+											<b>RASTERS:</b>
+											<p class="indent">-<b>DTM.tif</b>: Digital Terrain Model(1) of Lombardy region **1</p>
+											<p class="indent">-<b>dusaf.tif</b>: Agricultural and Forest Land Use Designation of Lombardy region **1</p>
+											<p class="indent">-<b>NDVI.tif</b>: Normalized Difference Vegetation Index (2)</p>
+											<p class="indent">-<b>ita_ppp_2020.tif</b>: The estimated population of Italy per grid-cell in the year 2020 **3<br><br>
+											<b>VECTORS:</b><br>
+											<p class="indent">-<b>groups_watersheds.gpkg</b>: group of areas representing the assigned regions<br>
+											<p class="indent">-<b>LS_inventory.gpkg</b>: inventory of Italian Landslides since 1996.**2<br>
+											<p class="indent">-<b>faults_buffer.gpkg</b>: buffers of 50, 100, 250, 500 m around faults lines **2<br>
+											<p class="indent">-<b>river_buffer.gpkg</b>: buffers of 50, 100, 250, 500 m around rivers lines **4<br>
+											<p class="indent">-<b>road_buffer.gpkg</b>: buffers of 50, 100, 250, 500 m around roads lines. **4</p></p>
+										<h3><b>Pre-processing: Rasters</b></h3>
+										<p>The data were imported into Q-GIS, and the layers were projected using the WGS84-UTM 32N (epsg:32632) coordinate system suitable for working with North Italy regions. The ita_ppp_2020.tif dataset was reprojected from geographical coordinates WGS-84 to match the projection of the other layers. The layers were clipped to the extent of the assigned region extracted from groups_watersheds.gpkg. The fault, road, and river buffer layers were rasterized. To ensure compatibility, NDVI was resampled from 10 to 5 m (other layers resolution). Various derived rasters, including aspect, slope angle, plan curvature, and profile curvature, were extracted from the DTM, with degree as the unit of measurement.</p>
+										<h3><b>Pre-processing: No landslide zones</b></h3>
+										<p>In landslide analysis, areas with slopes less than 20° or greater than 70° are typically considered as no landslide zones. A raster representing these areas was derived from the slope raster, and small patches were removed to avoid unnecessary processing and improve efficiency, setting 100 m as boundary threshold. Negative values were set to null, and the resulting raster was vectorized, adding a "Hazard" field with a value of 0 to the attribute table.</p>
+										<h3><b>Pre-processing: Landslide zones</b></h3>
+										<p>To distinguish landslide zones from no landslide zones, a spatial difference was performed between the areas defined by LS_inventory.gpkg and NLZ.gpkg. A union of the polygons in LS_inventory.gpkg was created to avoid overlapping and errors in subsequent extractions. The resulting polygons were assigned a "Hazard" field with a value of 1.</p>
+										<h3><b>Pre-processing:  Training and Testing points</b></h3>
+										<p>To create training and testing samples, 70% of the polygons from LS_inventory.gpkg and NLZ.gpkg were randomly selected and assigned the attribute "Train_Test" with the value "Training." The remaining 30% of the polygons were assigned the attribute "Test" for testing purposes. The two layers were merged, and 1000 random points were extracted from the resulting layer within the study area, ensuring a minimum distance of 5 m between points. The point extraction considered the Hazard and Train_Test attributes, maintaining a 70:30 ratio and binary values (0-1) for hazard representation:
+										Points belonging to classes Testing and Training were merged separately to have the adapt samples for modeling and validation.</p>
+										<h3><b>Susceptibility map</b></h3>
+										<p>Once the rasters representing the environmental factors and the training points sample were prepared, the susceptibility map was computed using the Random Forest algorithm. The slope raster was not considered as input because its information was already considered deriving the no landslide zones. The implementation of the Random Forest algorithm was carried out using an R script within QGIS. This algorithm constructs an ensemble of decision trees trained on different subsets of the training dataset, improving the accuracy and robustness of the model. The algorithm learns the relationship between landslide occurrences and selected input features from the training dataset. The output of the analysis includes the susceptibility map as a raster file and several graphs for evaluating the fit of the input rasters to the model.</p>
+										<h3><b>Model Validation</b></h3>
+										<p>Model validation was performed using a Python script that compared the "hazard" values of the testing points with the corresponding values on the susceptibility map. Since the values on the susceptibility map are continuous between 0 and 1, while the testing points have binary values (0 or 1), the susceptibility map was reclassified. Values below 0.5 were set to 0, and values equal to or above 0.5 were set to 1. It is important to note that the 0.5 threshold influences the values of the error matrix.</p>
+										<h3><b>Exposure assessment</b></h3>
+										<p>To assess the population's exposure to landslides, the susceptibility map was reclassified into four risk categories: low, medium, high, and very high. These categories corresponded to hazard value intervals: [0, 0.25), [0.25, 0.5), [0.5, 0.75), and [0.75, 1]. The ita_ppp_2020.tif dataset had a lower resolution, so the susceptibility map was resampled to match its resolution of 81.6 m using the "mode" aggregation method. The overlap of the two layers facilitated the calculation of the exposed population count, which was exported as a CSV file. The population exposure results are visualized in the pie chart.</p>
+										<h3><b>Results</b></h3>
+										<p>The results revealed that the majority of the population in the study area faces medium to low landslide risk. The overall error matrix indicated a satisfactory performance of the model, with a slight room for improvement. The results revealed that the majority of the population in the study area faces medium to low landslide risk. The overall error matrix indicated a satisfactory performance of the model, with a slight room for improvement. As shown, the area with the majority of the population is at low-medium risk. The value of 0.67 for the overall accuracy could be enhanced but is enough to compute the exposure assessment. In summary, user accuracy assesses the model's reliability in correctly classifying a specific class, while producer accuracy evaluates the model's ability to capture all instances of a particular class. Both metrics are essential for understanding different aspects of the model's performance in classification tasks.</p>
+										<h3><b>Conclusion</b></h3>
+										<p>This study demonstrated the application of open-source software, geospatial analysis techniques, and publicly available datasets for landslide risk assessment and population exposure evaluation. The integration of these resources offers a cost-effective and accessible approach to understanding landslide risks and their potential impact on the population. The findings have practical implications for land use planning, infrastructure development, and the implementation of early warning systems in the Imagna Valley. The methodology presented in this study provides a solid foundation for conducting assessments of landslide susceptibility mapping and population exposure evaluation. Further refinements, such as incorporating additional datasets on lithology and hydrological factors, real-time monitoring data, and socio-economic factors, can enhance the accuracy and comprehensiveness of landslide risk assessments. This integrated approach can contribute to the development of more effective risk mitigation strategies.</p>
+										<h3><b>References</b></h3>
+										<p>[1]Regional Geoportal of Lombardy: https://www.geoportale.regione.lombardia.it/download-dati<br>
+											[2]ISPRA: https://idrogeo.isprambiente.it/app/page/open-data<br>
+											[3]WorldPop: https://hub.worldpop.org/geodata/summary?id=6310<br>
+											[4]OpenStreetMap: https://www.openstreetmap.org</p>
+
+										<h3><b>APPENDIX</b></h3>
+										<p><b>1-DTM</b>: typically represented as a grid or raster dataset, where each cell corresponds to a specific geographic location and contains the elevation value of the terrain at that location.<br>
+											<b>2-NDVI</b>: index commonly used to assess and monitor the health and abundance of vegetation. NDVI = (NIR - Red) / (NIR + Red) where NIR represents the reflectance or radiance in the near-infrared spectral band, and Red represents the reflectance or radiance in the red spectral band. Ranges from -1 (no vegetation) to +1 (dense vegetation). It is derived from remote sensing data, particularly satellite imagery or aerial photographs, in our case derived from multi-spectral optical images over the area of Lombardy from ESA Copernicus Sentinel-2 missions (year 2020).<br>
+											<b>3-Aspect</b>: compass direction toward which a slope faces. Typically measured in degrees, goes from 0° to 360° whose correspond to true north.<br>
+											<b>4-Slope angle</b>: measurement of the steepness of the land surface. Can range from 0 degrees (horizontal surface) to 90 degrees (vertical surface).<br>
+											<b>5-Profile curvature</b>: quantifies the concavity or convexity of the surface along the profile direction. Ranges from -1 (crests) to +1 (depressions).<br>
+											<b>6-Plan curvature</b>: measure of the curvature of a surface in the horizontal plane. Positive plan curvature corresponds to convex features, value of zero to flat surface and negative corresponds to concave features.</p>
 									</div>
-								</div>
-
-						</div>
-
-					<!-- Two -->
-						<div class="wrapper style1 container special">
-							<div class="row">
-								<div class="col-4 col-12-narrower">
-
-									<div>
-										<header>
-											<h3>This is Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										<footer>
-											<ul class="buttons">
-												<li><a href="#" class="button small">Learn More</a></li>
-											</ul>
-										</footer>
-									</div>
-
-								</div>
-								<div class="col-4 col-12-narrower">
-
-									<div>
-										<header>
-											<h3>Also Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										<footer>
-											<ul class="buttons">
-												<li><a href="#" class="button small">Learn More</a></li>
-											</ul>
-										</footer>
-									</div>
-
-								</div>
-								<div class="col-4 col-12-narrower">
-
-									<div>
-										<header>
-											<h3>Probably Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										<footer>
-											<ul class="buttons">
-												<li><a href="#" class="button small">Learn More</a></li>
-											</ul>
-										</footer>
-									</div>
-
 								</div>
 							</div>
 						</div>
@@ -289,7 +322,7 @@
 				<footer id="footer">
 
 					<ul class="copyright">
-						<li>&copy; Group 5 WebGIS 2023</li>
+						<li>&copy; Group 5 WebGIS Lab 2023</li>
 					</ul>
 
 				</footer>

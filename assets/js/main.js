@@ -262,3 +262,82 @@ function currentSlide2(n) {
 
 // Initialize the second slideshow on page load
 document.addEventListener("DOMContentLoaded", initializeSlideshow2);
+
+// Slideshow 3 Javascript code //
+var slideIndex3 = 0;
+var timer3;
+
+// Initialize the third slideshow
+function initializeSlideshow3() {
+  var slides3 = document.getElementsByClassName("mySlides3");
+  var dot3 = document.getElementsByClassName("dot3");
+
+  // Hide all slides
+  for (var i = 0; i < slides3.length; i++) {
+    slides3[i].style.display = "none";
+  }
+
+  // Remove the "active2" class from all dots
+  for (var i = 0; i < dot3.length; i++) {
+    dot3[i].className = dot3[i].className.replace(" active3", "");
+  }
+
+  // Show the current slide and set the corresponding dot as active
+  slides3[slideIndex3].style.display = "block";
+  dot3[slideIndex3].className += " active3";
+
+  // Start the automatic slideshow
+  timer3 = setTimeout(function(){plusSlides3(1)}, 4000);
+}
+
+// Move to the next or previous slide
+function plusSlides3(n) {
+  clearTimeout(timer3);
+
+  var slides3 = document.getElementsByClassName("mySlides3");
+  var dot3 = document.getElementsByClassName("dot3");
+
+  // Hide current slide and deactivate its dot
+  slides3[slideIndex3].style.display = "none";
+  dot3[slideIndex3].className = dot3[slideIndex3].className.replace(" active3", "");
+
+  // Increment or decrement the slideIndex2 and wrap around if necessary
+  slideIndex3 += n;
+  if (slideIndex3 >= slides3.length) {
+    slideIndex3 = 0;
+  } else if (slideIndex3 < 0) {
+    slideIndex3 = slides3.length - 1;
+  }
+
+  // Show the next or previous slide and activate its dot
+  slides3[slideIndex3].style.display = "block";
+  dot3[slideIndex3].className += " active3";
+
+  // Restart the timer
+  timer3 = setTimeout(function(){plusSlides3(1)}, 4000);
+}
+
+// Function to set the current slide
+function currentSlide3(n) {
+  clearTimeout(timer3);
+
+  var slides3 = document.getElementsByClassName("mySlides3");
+  var dot3 = document.getElementsByClassName("dot3");
+
+  // Hide current slide and deactivate its dot
+  slides3[slideIndex3].style.display = "none";
+  dot3[slideIndex3].className = dot3[slideIndex3].className.replace(" active3", "");
+
+  // Adjust for 1-based indexing in the HTML and set slideIndex2 to the given index
+  slideIndex3 = n - 1;
+
+  // Show the chosen slide and activate its dot
+  slides3[slideIndex3].style.display = "block";
+  dot3[slideIndex3].className += " active3";
+
+  // Restart the timer
+  timer3 = setTimeout(function(){plusSlides3(1)}, 4000);
+}
+
+// Initialize the second slideshow on page load
+document.addEventListener("DOMContentLoaded", initializeSlideshow3);

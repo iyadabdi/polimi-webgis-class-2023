@@ -8,6 +8,12 @@
     z-index: 999;
     left: 50px;
     top: 10px;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+    font-family: 'Roboto Mono', sans-serif;
+    font-weight: 700;
+    border: 1px solid white;
+
+
 }
 
 .wrapper.style2{
@@ -84,7 +90,7 @@
     content: "✖";
 }
 
-/*.layer-switcher.shown.layer-switcher-activation-mode-click {
+.layer-switcher.shown.layer-switcher-activation-mode-click {
   padding-right: 34px;
 }
 .layer-switcher.shown.layer-switcher-activation-mode-click > button {
@@ -94,11 +100,12 @@
 
 /*Add your new styles after this line*/
 .custom-control {
-    bottom: 30px;
+    bottom: 45px;
     position: absolute;
     right: 15px;
     background: #ffffff;
-    color: rgb(0, 0, 0);
-    border: 2px solid rgb(192, 192, 192);
+    color: #0062ff;
+    font-family: 'Roboto Mono', sans-serif;
     padding: 10px;
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
 }

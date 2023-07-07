@@ -1,16 +1,56 @@
 //Step 1: Add the OSM base map and the map object to the WebGIS
 //Put here the OSM layer.
-let osm = new ol.layer.Tile({
+var osm = new ol.layer.Tile({
     title: "Open Street Map",
     type: "base",
     visible: false,
     source: new ol.source.OSM()
 });
 
+//Add the Bing Maps layers
+var BING_MAPS_KEY = "Akq75SxLn-ec_s82etAIg8NC6oojH6tG52Jycx51BTKoPJdgmKXg0xYFDrGa6Rrd";
+var bingAerial = new ol.layer.Tile({
+    title: 'Bing Maps Aerial',
+    type: 'base',
+    visible: true,
+    source: new ol.source.BingMaps({
+        key: BING_MAPS_KEY,
+        imagerySet: 'Aerial'
+    })
+});
+
+var bingRoads = new ol.layer.Tile({
+    title: 'Bing Maps Roads',
+    type: 'base',
+    visible: false,
+    source: new ol.source.BingMaps({
+        key: BING_MAPS_KEY,
+        imagerySet: 'Road'
+    })
+});
+
+//Add the Stamen base layers
+var stamenterrain = new ol.layer.Tile({
+    title: 'Stamen Terrain',
+    type: 'base',
+    visible: false,
+    source: new ol.source.Stamen({
+        layer: 'terrain'
+    })
+});
+var stamenToner = new ol.layer.Tile({
+    title: 'Stamen Toner',
+    type: 'base',
+    visible: false,
+    source: new ol.source.Stamen({
+        layer: 'toner'
+    })
+});
+
 //Step *: Add suceptibility clip Valle Imagna
 
 var Reclass_resampled_susceptibility_map = new ol.layer.Image({
-  title: "Suceptibility map",
+  title: "Susceptibility map",
   source: new ol.source.ImageWMS({
       url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_05/wms?service=WMS&version=1.1.0&request=GetMap&layers=gisgeoserver_05%3AReclass_resampled_susceptibility_map&bbox=536399.205%2C5066963.4401%2C547016.1198%2C5079867.0751&width=631&height=768&srs=EPSG%3A32632&styles=&format=application/openlayers',
       params: { 'LAYERS': 'Reclass_resampled_susceptibility_map', 'STYLES': 'suceptibility'}
@@ -72,7 +112,7 @@ var aspect = new ol.layer.Image({
 
 //Step *: Add dtm clip Valle Imagna
 var dtm = new ol.layer.Image({
-    title: "Dtm",
+    title: "DTM",
     source: new ol.source.ImageWMS({
         url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_05/wms?service=WMS&version=1.1.0&request=GetMap&layers=gisgeoserver_05%3Adtm&bbox=536410.0%2C5067015.0%2C546985.0%2C5079815.0&width=634&height=768&srs=EPSG%3A32632&styles=&format=application/openlayers',
         params: { 'LAYERS': 'dtm', 'STYLES': 'dtm'}
@@ -105,7 +145,7 @@ var faults = new ol.layer.Image({
 
 //Step *: Add ndvi clip Valle Imagna
 var ndvi = new ol.layer.Image({
-    title: "Ndvi",
+    title: "NDVI",
     source: new ol.source.ImageWMS({
         url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_05/wms?service=WMS&version=1.1.0&request=GetMap&layers=gisgeoserver_05%3Afaults&bbox=536410.0%2C5067015.0%2C546985.0%2C5079815.0&width=634&height=768&srs=EPSG%3A32632&styles=&format=application/openlayers',
         params: { 'LAYERS': 'ndvi', 'STYLES': 'ndvi'}
@@ -189,8 +229,9 @@ let basemapLayers = new ol.layer.Group({
     layers: [osm]
 });
 
+
 let Analytical_output = new ol.layer.Group({  //AGGIORNARE IL NOME DEL GRUPPO CON QUALCOSA PIU CARINO
-    title: "Analytical output",
+    title: "Susceptibility Map",
     layers: [Reclass_resampled_susceptibility_map]    //POPOLARE [] CON I NUOVI LAYER AGGIUNTI
 });
 
@@ -227,53 +268,19 @@ map.addControl(
     })
 );
 
+
+//Get the list of basemaps and Extend the list using the .extend() function adding the 2 new layers
+// Add the Bing Maps layers and Stamen Maps layers
+basemapLayers.getLayers().insertAt(4, stamenToner);
+basemapLayers.getLayers().insertAt(4, stamenterrain);
+basemapLayers.getLayers().insertAt(4, bingRoads);
+basemapLayers.getLayers().insertAt(4, bingAerial);
+
+
+
 //Add the layer switcher control
 var layerSwitcher = new ol.control.LayerSwitcher({});
 map.addControl(layerSwitcher);
-
-//Add the Bing Maps layers
-var BING_MAPS_KEY = "Akq75SxLn-ec_s82etAIg8NC6oojH6tG52Jycx51BTKoPJdgmKXg0xYFDrGa6Rrd";
-var bingRoads = new ol.layer.Tile({
-    title: 'Bing Maps Roads',
-    type: 'base',
-    visible: false,
-    source: new ol.source.BingMaps({
-        key: BING_MAPS_KEY,
-        imagerySet: 'Road'
-    })
-});
-var bingAerial = new ol.layer.Tile({
-    title: 'Bing Maps Aerial',
-    type: 'base',
-    visible: true,
-    source: new ol.source.BingMaps({
-        key: BING_MAPS_KEY,
-        imagerySet: 'Aerial'
-    })
-});
-
-//Get the list of basemaps and Extend the list using the .extend() function adding the 2 new layers
-basemapLayers.getLayers().extend([bingRoads, bingAerial]);
-
-//Add the Stamen base layers
-var stamenterrain = new ol.layer.Tile({
-    title: 'Stamen Terrain',
-    type: 'base',
-    visible: false,
-    source: new ol.source.Stamen({
-        layer: 'terrain'
-    })
-});
-var stamenToner = new ol.layer.Tile({
-    title: 'Stamen Toner',
-    type: 'base',
-    visible: false,
-    source: new ol.source.Stamen({
-        layer: 'toner'
-    })
-});
-//Get the list of basemaps and Extend the list using the .extend() function adding the 2 new layers
-basemapLayers.getLayers().extend([stamenterrain, stamenToner]);
 
 var container = document.getElementById('popup');
 var content = document.getElementById('popup-content');
