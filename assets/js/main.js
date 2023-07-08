@@ -104,6 +104,7 @@ $(document).on('click', '[data-toggle="lightbox"]', function(event) {
 
 
 // Slideshow JavaScript code
+// Initialize slideIndex and timer
 var slideIndex = 0;
 var timer;
 
@@ -123,7 +124,7 @@ function initializeSlideshow() {
   }
 
   // Show the first slide and set the corresponding dot as active
-  slides[slideIndex].style.display = "none";
+  slides[slideIndex].style.display = "block";
   dots[slideIndex].className += " active";
 
   // Start the automatic slideshow
@@ -146,7 +147,7 @@ function plusSlides(n) {
   if (slideIndex >= slides.length) {
     slideIndex = 0;
   } else if (slideIndex < 0) {
-    slideIndex = slides.length - 1;
+  slideIndex = slides.length - 1;
   }
 
   // Show the next or previous slide and activate its dot
@@ -181,6 +182,7 @@ function currentSlide(n) {
 
 // Initialize the slideshow on page load
 document.addEventListener("DOMContentLoaded", initializeSlideshow);
+
 
 
 
