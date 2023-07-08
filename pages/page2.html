@@ -269,16 +269,16 @@
 										<h3><b>Data Description</b></h3>
 										<p>The following datasets were employed for this study:<br><br>
 											<b>RASTERS:</b>
-											<p class="indent">-<b>DTM.tif</b>: Digital Terrain Model(1) of Lombardy region **1</p>
-											<p class="indent">-<b>dusaf.tif</b>: Agricultural and Forest Land Use Designation of Lombardy region **1</p>
+											<p class="indent">-<b>DTM.tif</b>: Digital Terrain Model(1) of Lombardy region<sup>[1]</sup></p>
+											<p class="indent">-<b>dusaf.tif</b>: Agricultural and Forest Land Use Designation of Lombardy region<sup>[1]</sup></p>
 											<p class="indent">-<b>NDVI.tif</b>: Normalized Difference Vegetation Index (2)</p>
-											<p class="indent">-<b>ita_ppp_2020.tif</b>: The estimated population of Italy per grid-cell in the year 2020 **3<br><br>
+											<p class="indent">-<b>ita_ppp_2020.tif</b>: The estimated population of Italy per grid-cell in the year 2020<sup>[3]</sup><br><br>
 											<b>VECTORS:</b><br>
 											<p class="indent">-<b>groups_watersheds.gpkg</b>: group of areas representing the assigned regions<br>
-											<p class="indent">-<b>LS_inventory.gpkg</b>: inventory of Italian Landslides since 1996.**2<br>
-											<p class="indent">-<b>faults_buffer.gpkg</b>: buffers of 50, 100, 250, 500 m around faults lines **2<br>
-											<p class="indent">-<b>river_buffer.gpkg</b>: buffers of 50, 100, 250, 500 m around rivers lines **4<br>
-											<p class="indent">-<b>road_buffer.gpkg</b>: buffers of 50, 100, 250, 500 m around roads lines. **4</p></p>
+											<p class="indent">-<b>LS_inventory.gpkg</b>: inventory of Italian Landslides since 1996<sup>[2]</sup><br>
+											<p class="indent">-<b>faults_buffer.gpkg</b>: buffers of 50, 100, 250, 500 m around faults lines<sup>[2]</sup><br>
+											<p class="indent">-<b>river_buffer.gpkg</b>: buffers of 50, 100, 250, 500 m around rivers lines<sup>[4]</sup><br>
+											<p class="indent">-<b>road_buffer.gpkg</b>: buffers of 50, 100, 250, 500 m around roads lines<sup>[4]</sup></p></p>
 										<h3><b>Pre-processing: Rasters</b></h3>
 										<p>The data were imported into Q-GIS, and the layers were projected using the WGS84-UTM 32N (epsg:32632) coordinate system suitable for working with North Italy regions. The ita_ppp_2020.tif dataset was reprojected from geographical coordinates WGS-84 to match the projection of the other layers. The layers were clipped to the extent of the assigned region extracted from groups_watersheds.gpkg. The fault, road, and river buffer layers were rasterized. To ensure compatibility, NDVI was resampled from 10 to 5 m (other layers resolution). Various derived rasters, including aspect, slope angle, plan curvature, and profile curvature, were extracted from the DTM, with degree as the unit of measurement.</p>
 										<h3><b>Pre-processing: No landslide zones</b></h3>
@@ -299,10 +299,11 @@
 										<h3><b>Conclusion</b></h3>
 										<p>This study demonstrated the application of open-source software, geospatial analysis techniques, and publicly available datasets for landslide risk assessment and population exposure evaluation. The integration of these resources offers a cost-effective and accessible approach to understanding landslide risks and their potential impact on the population. The findings have practical implications for land use planning, infrastructure development, and the implementation of early warning systems in the Imagna Valley. The methodology presented in this study provides a solid foundation for conducting assessments of landslide susceptibility mapping and population exposure evaluation. Further refinements, such as incorporating additional datasets on lithology and hydrological factors, real-time monitoring data, and socio-economic factors, can enhance the accuracy and comprehensiveness of landslide risk assessments. This integrated approach can contribute to the development of more effective risk mitigation strategies.</p>
 										<h3><b>References</b></h3>
-										<p>[1]Regional Geoportal of Lombardy: https://www.geoportale.regione.lombardia.it/download-dati<br>
-											[2]ISPRA: https://idrogeo.isprambiente.it/app/page/open-data<br>
-											[3]WorldPop: https://hub.worldpop.org/geodata/summary?id=6310<br>
-											[4]OpenStreetMap: https://www.openstreetmap.org</p>
+										<p><sup>[1]</sup><b>Regional Geoportal of Lombardy</b>: https://www.geoportale.regione.lombardia.it/download-dati</br>
+											<sup>[2]</sup><b>ISPRA</b>: https://idrogeo.isprambiente.it/app/page/open-data</br>
+											<sup>[3]</sup><b>WorldPop</b>: https://hub.worldpop.org/geodata/summary?id=6310<br>
+											<sup>[4]</sup><b>OpenStreetMap</b>: https://www.openstreetmap.org</br>
+											<sup>[5]</sup><b>ESA Copernicus Sentinel-2</b>: https://dataspace.copernicus.eu/explore-data/data-collections/sentinel-data/sentinel-2</p>
 
 										<h3><b>GLOSSARY</b></h3>
 										<p><b>1-DTM</b>: Topographic model showing the features of the terrain, typically represented as a grid or raster dataset, where each cell corresponds to a specific geographic location and contains the elevation value of the terrain at that location.<br>

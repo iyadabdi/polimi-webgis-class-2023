@@ -50,7 +50,7 @@ var stamenToner = new ol.layer.Tile({
 //Step *: Add suceptibility clip Valle Imagna
 
 var Reclass_resampled_susceptibility_map = new ol.layer.Image({
-  title: "Susceptibility map",
+  title: "Resampled susceptibility map",
   source: new ol.source.ImageWMS({
       url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_05/wms?service=WMS&version=1.1.0&request=GetMap&layers=gisgeoserver_05%3AReclass_resampled_susceptibility_map&bbox=536399.205%2C5066963.4401%2C547016.1198%2C5079867.0751&width=631&height=768&srs=EPSG%3A32632&styles=&format=application/openlayers',
       params: { 'LAYERS': 'Reclass_resampled_susceptibility_map', 'STYLES': 'suceptibility'}
