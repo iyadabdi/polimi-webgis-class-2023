@@ -244,7 +244,7 @@ let Analytical_input = new ol.layer.Group({  //AGGIORNARE IL NOME DEL GRUPPO CON
 
 
 //Put here the main map object.
-const initialZoom = 12.2;
+const initialZoom = 12.5;
 const initialCoordinates = [9.534668, 45.811851];
 let map = new ol.Map({
     target: document.getElementById('map'),
@@ -297,6 +297,19 @@ map.addOverlay(popup);
   //popup.setPosition(coord);
   //content.innerHTML = '<h5>Test Popup</h5><p>This is a test popup.</p>';
 //});
+
+document.getElementById('download-map').addEventListener('click', function() {
+    html2canvas(document.getElementById('map'), { // replace 'map' with the id of your map container
+        useCORS: true
+    }).then(function(canvas) {
+        var link = document.createElement('a');
+        link.download = 'map.png';
+        link.href = canvas.toDataURL();
+        link.click();
+    });
+});
+
+
 
 
 
