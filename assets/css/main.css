@@ -1737,10 +1737,9 @@ input, select, textarea {
 		  margin: auto;
 		}
 		.mySlides {
-		  display: none;
+		  display: block;
 		}
 
-		}
 		/* Show the active slide */
 		.mySlides.active {
 		  display: block;
