@@ -93,7 +93,7 @@ $.ajax({url: wfs_url, dataType: 'jsonp'});
 var LS_inventory = new ol.layer.Vector({
   title: "LS inventory",
   source: vectorSource,
-  visible: true
+  visible: false
 });
 
 
