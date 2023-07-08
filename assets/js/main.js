@@ -123,7 +123,7 @@ function initializeSlideshow() {
   }
 
   // Show the first slide and set the corresponding dot as active
-  slides[slideIndex].style.display = "block";
+  slides[slideIndex].style.display = "none";
   dots[slideIndex].className += " active";
 
   // Start the automatic slideshow
