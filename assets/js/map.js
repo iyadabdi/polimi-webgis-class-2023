@@ -286,9 +286,6 @@ var container = document.getElementById('popup');
 var content = document.getElementById('popup-content');
 var closer = document.getElementById('popup-closer');
 
-
-
-
 var popup = new ol.Overlay({
   element: container
 });
@@ -300,25 +297,6 @@ closer.onclick = function() {
   closer.blur();
   return false;
 };
-
-map.on('pointermove', function(event) {
-  var pixel = map.getEventPixel(event.originalEvent);
-  var hit = map.forEachLayerAtPixel(pixel, function(layer, color) {
-    return true;  // if a layer is found at the pixel, stop searching and return true
-  });
-  map.getTargetElement().style.cursor = hit ? 'pointer' : '';
-});
-
-
-
-//////////////////// original below
-
-
-var popup = new ol.Overlay({
-  element: container
-});
-
-map.addOverlay(popup);
 
 map.on('singleclick', function(event) {
   if (Reclass_resampled_susceptibility_map.getVisible()) {
@@ -355,21 +333,15 @@ map.on('singleclick', function(event) {
   }
 });
 
-closer.onclick = function() {
-  popup.setPosition(undefined);
-  closer.blur();
-  return false;
-};
+var clickableLayers = [Reclass_resampled_susceptibility_map, LS_inventory];
 
 map.on('pointermove', function(event) {
   var pixel = map.getEventPixel(event.originalEvent);
   var hit = map.forEachLayerAtPixel(pixel, function(layer, color) {
-    return true;  // if a layer is found at the pixel, stop searching and return true
+    return clickableLayers.includes(layer);
   });
   map.getTargetElement().style.cursor = hit ? 'pointer' : '';
 });
-
-
 
 
 var container = document.getElementById('popup');
