@@ -286,34 +286,14 @@ var container = document.getElementById('popup');
 var content = document.getElementById('popup-content');
 var closer = document.getElementById('popup-closer');
 
+
+
+
 var popup = new ol.Overlay({
   element: container
 });
 
 map.addOverlay(popup);
-
-//map.on('singleclick', function(event) {
-  //var coord = map.getCoordinateFromPixel(event.pixel);
-  //popup.setPosition(coord);
-  //content.innerHTML = '<h5>Test Popup</h5><p>This is a test popup.</p>';
-//});
-
-document.getElementById('download-map').addEventListener('click', function() {
-    html2canvas(document.getElementById('map'), { // replace 'map' with the id of your map container
-        useCORS: true
-    }).then(function(canvas) {
-        var link = document.createElement('a');
-        link.download = 'map.png';
-        link.href = canvas.toDataURL();
-        link.click();
-    });
-});
-
-
-
-
-
-
 
 closer.onclick = function() {
   popup.setPosition(undefined);
@@ -323,15 +303,16 @@ closer.onclick = function() {
 
 map.on('pointermove', function(event) {
   var pixel = map.getEventPixel(event.originalEvent);
-  var hit = map.hasFeatureAtPixel(pixel);
+  var hit = map.forEachLayerAtPixel(pixel, function(layer, color) {
+    return true;  // if a layer is found at the pixel, stop searching and return true
+  });
   map.getTargetElement().style.cursor = hit ? 'pointer' : '';
 });
 
 
+
 //////////////////// original below
-var container = document.getElementById('popup');
-var content = document.getElementById('popup-content');
-var closer = document.getElementById('popup-closer');
+
 
 var popup = new ol.Overlay({
   element: container
@@ -380,8 +361,17 @@ closer.onclick = function() {
   return false;
 };
 
-map.on('pointermove', function(event) {  // Corrected event name from pointmove to pointermove
+map.on('pointermove', function(event) {
   var pixel = map.getEventPixel(event.originalEvent);
-  var hit = map.hasFeatureAtPixel(pixel);
+  var hit = map.forEachLayerAtPixel(pixel, function(layer, color) {
+    return true;  // if a layer is found at the pixel, stop searching and return true
+  });
   map.getTargetElement().style.cursor = hit ? 'pointer' : '';
 });
+
+
+
+
+var container = document.getElementById('popup');
+var content = document.getElementById('popup-content');
+var closer = document.getElementById('popup-closer');
