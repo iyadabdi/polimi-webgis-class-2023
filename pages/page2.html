@@ -288,6 +288,11 @@
 										<h3><b>Pre-processing:  Training and Testing points</b></h3>
 										<p>To create training and testing samples, 70% of the polygons from LS_inventory.gpkg and NLZ.gpkg were randomly selected and assigned the attribute "Train_Test" with the value "Training." The remaining 30% of the polygons were assigned the attribute "Test" for testing purposes. The two layers were merged, and 1000 random points were extracted from the resulting layer within the study area, ensuring a minimum distance of 5 m between points. The point extraction considered the Hazard and Train_Test attributes, maintaining a 70:30 ratio and binary values (0-1) for hazard representation:
 										Points belonging to classes Testing and Training were merged separately to have the adapt samples for modeling and validation.</p>
+										<figure style="text-align: center;">
+											<figcaption style="color: #0062ff; font-size: 14pt; font-weight: 400;">Points classification for Training & Testing</figcaption>
+											<img src="../images/train_test.png" style="width: 70%;" alt="Image description">
+										</figure>
+
 										<h3><b>Susceptibility map</b></h3>
 										<p>Once the rasters representing the environmental factors and the training points sample were prepared, the susceptibility map was computed using the Random Forest algorithm. The slope raster was not considered as input because its information was already considered deriving the no landslide zones. The implementation of the Random Forest algorithm was carried out using an R script within QGIS. This algorithm constructs an ensemble of decision trees trained on different subsets of the training dataset, improving the accuracy and robustness of the model. The algorithm learns the relationship between landslide occurrences and selected input features from the training dataset. The output of the analysis includes the susceptibility map as a raster file and several graphs for evaluating the fit of the input rasters to the model.</p>
 										<h3><b>Model Validation</b></h3>
