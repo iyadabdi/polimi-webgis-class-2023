@@ -2975,17 +2975,18 @@ input, select, textarea {
 /* CTA */
 
 	#cta {
-		background-attachment: scroll, scroll, scroll, fixed;
 		background-color: #645862;
-		background-image:  url("../../images/lombardybw.png");
-		background-position: top left, top right, top left, bottom center;
-		background-repeat: no-repeat, no-repeat, repeat, no-repeat;
-		background-size: cover;
+		background-image:  url("../../images/lombardybw2.png");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover !important;
 		background-color: rgba(100, 88, 98, 0.3);
 		transform: scale(1);
 		color: #fff;
 		padding: 5em;
 		text-align: center;
+		position: relative;
+		overflow: hidden;
 	}
 
 	#cta::before {
@@ -2994,11 +2995,38 @@ input, select, textarea {
 		top: 50%; /* Adjust the vertical position */
 	  left: 50%; /* Adjust the horizontal position */
 	  transform: translate(-50%, -50%); /* Center the box */
-	  width: 53%;
-	  height: 65%;
+	  width: 57vw;
+	  height: 42vh;
 	  background-color: rgba(0, 0, 0, 0.3);
 	  backdrop-filter: blur(3px);
 	  z-index: -1;
+	}
+
+
+	#cta header p {
+		margin-right: 20%;
+		margin-left: 20%;/* Adjust this to your preference */
+	}
+
+	/* Assuming 600px is the breakpoint you want */
+	@media screen and (max-width: 600px) {
+		#cta header h1 {
+			font-size: 18px; /* This will be the minimum font size */
+		}
+
+		#cta header p {
+			font-size: 16px; /* This will be the minimum font size */
+		}
+	}
+
+	@media screen and (min-width: 1200px) {
+		#cta header h1 {
+			font-size: 36px; /* This will be the maximum font size */
+		}
+
+		#cta header p {
+			font-size: 23px; /* This will be the maximum font size */
+		}
 	}
 
 
