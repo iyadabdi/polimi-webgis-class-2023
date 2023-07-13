@@ -48,6 +48,15 @@ var stamenToner = new ol.layer.Tile({
 });
 
 //Step *: Add suceptibility clip Valle Imagna
+var Susceptibility_map_tif = new ol.layer.Image({
+  title: "Landslide susceptibility map",
+  source: new ol.source.ImageWMS({
+      url: 'https://www.gis-geoserver.polimi.it/geoserver/gisgeoserver_05/wms?service=WMS&version=1.1.0&request=GetMap&layers=gisgeoserver_05%3ASusceptibility_map_tif&bbox=536410.0%2C5067015.0%2C546985.0%2C5079815.0&width=634&height=768&srs=EPSG%3A32632&styles=&format=application/openlayers',
+      params: { 'LAYERS': 'Susceptibility_map_tif', 'STYLES': 'suceptibility2'}
+  }),
+  opacity: 1,
+  visible: true  // Set the layer to be visible by default
+});
 
 var Reclass_resampled_susceptibility_map = new ol.layer.Image({
   title: "Resampled susceptibility map",
@@ -56,7 +65,7 @@ var Reclass_resampled_susceptibility_map = new ol.layer.Image({
       params: { 'LAYERS': 'Reclass_resampled_susceptibility_map', 'STYLES': 'suceptibility'}
   }),
   opacity: 1,
-  visible: true  // Set the layer to be visible by default
+  visible: false  // Set the layer to be visible by default
 });
 
 
@@ -232,7 +241,7 @@ let basemapLayers = new ol.layer.Group({
 
 let Analytical_output = new ol.layer.Group({  //AGGIORNARE IL NOME DEL GRUPPO CON QUALCOSA PIU CARINO
     title: "Susceptibility Map",
-    layers: [Reclass_resampled_susceptibility_map]    //POPOLARE [] CON I NUOVI LAYER AGGIUNTI
+    layers: [Reclass_resampled_susceptibility_map, Susceptibility_map_tif]    //POPOLARE [] CON I NUOVI LAYER AGGIUNTI
 });
 
 let Analytical_input = new ol.layer.Group({  //AGGIORNARE IL NOME DEL GRUPPO CON QUALCOSA PIU CARINO
