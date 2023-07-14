@@ -308,7 +308,28 @@ closer.onclick = function() {
 };
 
 map.on('singleclick', function(event) {
-  if (Reclass_resampled_susceptibility_map.getVisible()) {
+  if (Susceptibility_map_tif.getVisible()) {
+    var viewResolution = map.getView().getResolution();
+    var url = Susceptibility_map_tif.getSource().getFeatureInfoUrl(
+      event.coordinate,
+      viewResolution,
+      'EPSG:3857',
+      {'INFO_FORMAT': 'application/json'}
+    );
+
+    if (url) {
+      fetch(url)
+        .then(function(response) { return response.json(); })
+        .then(function(json) {
+          var result = json.features[0].properties;
+          var pixel_value = result['GRAY_INDEX'];  // replace 'ATTRIBUTE_NAME' with the actual attribute name in your data
+
+          var pixel = map.getPixelFromCoordinate(event.coordinate);
+          popup.setPosition(event.coordinate);
+          content.innerHTML = '<h5>Susceptibility Level <br>(0.0-1.0)</h5><b>Risk level: </b>' + pixel_value;
+        });
+    }
+  } else if (Reclass_resampled_susceptibility_map.getVisible()) {
     var viewResolution = map.getView().getResolution();
     var url = Reclass_resampled_susceptibility_map.getSource().getFeatureInfoUrl(
       event.coordinate,
@@ -326,9 +347,10 @@ map.on('singleclick', function(event) {
 
           var pixel = map.getPixelFromCoordinate(event.coordinate);
           popup.setPosition(event.coordinate);
-          content.innerHTML = '<h5>Susceptibility Map</h5><b>Risk level: </b>' + pixel_value;
+          content.innerHTML = '<h5>Reclassified Susceptibility (1-4)</h5><b>Risk class: </b>' + pixel_value;
         });
     }
+
   } else if (LS_inventory.getVisible()) {
     var feature = map.forEachFeatureAtPixel(event.pixel, function(feature, layer) {
       return feature;
@@ -342,7 +364,7 @@ map.on('singleclick', function(event) {
   }
 });
 
-var clickableLayers = [Reclass_resampled_susceptibility_map, LS_inventory];
+var clickableLayers = [Susceptibility_map_tif, Reclass_resampled_susceptibility_map, LS_inventory];
 
 map.on('pointermove', function(event) {
   var pixel = map.getEventPixel(event.originalEvent);
